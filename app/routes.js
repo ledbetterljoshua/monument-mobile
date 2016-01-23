@@ -18,6 +18,16 @@ module.exports = function(app, passport) {
     //     res.redirect('/#/login');
     //     user : req.user
     // });
+    app.get('/#/login', function(req, res) {
+        if(req.user) {
+            res.redirect('/#/tab/dash');
+        }
+    });
+    app.get('/#/tab/dash', function(req, res) {
+        if(!req.user) {
+            res.redirect('/#/login');
+        }
+    });
     // =====================================
     // LOGOUT ==============================
     // =====================================
