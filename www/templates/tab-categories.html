@@ -1,0 +1,19 @@
+<ion-view view-title="Categories">
+    <ion-content class="padding" header-shrink scroll-event-interval="5">
+    <ion-refresher pulling-text="Pull to refresh" on-refresh="refreshCategory()"></ion-refresher>
+    <ion-item menu-close href="#/profile">
+    Profile
+    </ion-item>
+      <div>
+        <div class="list card category fadeOutRight category-item" ng-repeat="group in categories | filter:search | orderBy:'-created'  track by group._id" >
+          <a href="#/tab/category2" ng-click="getGroup(group._id)">
+            <div class="item item-avatar">
+              <h2>{{group.name}}</h2>
+              <p>{{group.created | date}}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </ion-content>
+  </ion-view>
+

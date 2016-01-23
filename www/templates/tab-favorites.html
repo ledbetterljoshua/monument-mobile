@@ -1,0 +1,37 @@
+<ion-view view-title="Favorites">
+  <ion-content class="padding" header-shrink scroll-event-interval="5">
+  <ion-refresher pulling-text="Pull to refresh" on-refresh="refreshPost()"></ion-refresher>
+    <div class="list card" ng-repeat="post in posts | filter:search | orderBy:'-created'  track by post._id" ng-if="post.favorite == true" >
+      <a href="{{post.url}}" target="_blank">
+        <div class="item item-avatar post">
+          <h2>{{post.title}}</h2>
+          <p>{{post.created | date}} - {{post.url | domain}}</p>
+        </div>
+      </a>
+
+      <div ng-hide="post.image == 'undefined' || !post.image" class="item item-image">
+        <img ng-cloak ng-src="{{post.image}}" src="{{post.image}}" on-error-src="https://nutrasumma.com/wp-content/uploads/banner-placeholder.jpg">
+      </div>
+
+      <p ng-hide="post.description == 'undefined' || !post.description" class="item  assertive">
+        {{post.description}}
+      </p>
+      <div class="post-icons item">
+            <ng-md-icon ng-show="!post.favorite" class="ion-ios-heart-outline" ng-click="favoritePost(post._id)">
+        </ng-md-icon>
+        <ng-md-icon ng-show="post.favorite" style="fill:#6B7ADA;" class="ion-heart"  ng-click="removeFavorite(post._id)">
+        </ng-md-icon>
+        <ng-md-icon ng-show="!post.readlater" class="ion-ios-book-outline"  ng-click="readLater(post._id)">
+        </ng-md-icon>
+        <ng-md-icon ng-show="post.readlater" class="ion-ios-checkmark-outline"  ng-click="markAsRead(post._id)">
+        </ng-md-icon>
+          <ng-md-icon ng-if="showRemovePost.active" ng-click="addToGroup(post._id, showRemovePost.group); getPostss()"  class="highlight_remove">
+        </ng-md-icon>
+
+          <ng-md-icon ng-click="remove(post._id)"  class="ion-ios-close-outline">
+        </ng-md-icon>
+      </div> <!-- icons end -->
+
+    </div>
+  </ion-content>
+</ion-view>

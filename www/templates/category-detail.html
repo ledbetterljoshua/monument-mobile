@@ -1,0 +1,43 @@
+<ion-view view-title="{{searchCategory.name}}">
+    <ion-content class="padding" on-swipe-right="$ionicGoBack(); getGroup()" header-shrink scroll-event-interval="5">
+    <ion-refresher pulling-text="Pull to refresh" on-refresh="refreshPost()"></ion-refresher>
+      <div ng-show="(posts | filter:searchCategory.search).length == 0" class="card">
+        <div class="item item-text-wrap">This category is empty!</div>
+      </div>
+        <div class="animated post-item item-remove-animate" ng-class="animation">
+          <div class="list card" ng-repeat="post in posts | filter:searchCategory.search | orderBy:'-created'  track by post._id" >
+            <a href="{{post.url}}" target="_blank">
+              <div class="item item-avatar post">
+                <h2>{{post.title}}</h2>
+                <p>{{post.created | date}} - {{post.url | domain}}</p>
+              </div>
+              <div style="display:none !important">{{post.group}}</div>
+            </a>
+
+            <div ng-hide="post.image == 'undefined' || !post.image" class="item item-image">
+              <img ng-cloak ng-src="{{post.image}}" src="{{post.image}}" on-error-src="https://nutrasumma.com/wp-content/uploads/banner-placeholder.jpg">
+            </div>
+
+            <p ng-hide="post.description == 'undefined' || !post.description" class="item  assertive">
+              {{post.description}}
+            </p>
+            <div class="post-icons item">
+                  <ng-md-icon ng-show="!post.favorite" class="ion-ios-heart-outline" ng-click="favoritePost(post._id)">
+              </ng-md-icon>
+              <ng-md-icon ng-show="post.favorite" style="fill:#6B7ADA;" class="ion-heart"  ng-click="removeFavorite(post._id)">
+              </ng-md-icon>
+              <ng-md-icon ng-show="!post.readlater" class="ion-ios-book-outline"  ng-click="readLater(post._id)">
+              </ng-md-icon>
+              <ng-md-icon ng-show="post.readlater" class="ion-ios-checkmark-outline"  ng-click="markAsRead(post._id)">
+              </ng-md-icon>
+                <ng-md-icon ng-if="showRemovePost.active" ng-click="addToGroup(post._id, showRemovePost.group); getPostss()"  class="highlight_remove">
+              </ng-md-icon>
+
+                <ng-md-icon ng-click="remove(post._id)"  class="ion-ios-close-outline">
+              </ng-md-icon>
+            </div> <!-- icons end -->
+
+          </div>
+        </div>
+    </ion-content>
+  </ion-view>

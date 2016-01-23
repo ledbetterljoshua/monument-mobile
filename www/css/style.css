@@ -1,0 +1,122 @@
+/* Empty. Add your own CSS if you like */
+.scroll-content {
+	background: #F1F1F1;
+    top: 0;
+}
+.bar.bar-header.item-input-inset {
+    /*position: fixed;
+    top: 0;*/
+}
+label.item-input-wrapper {
+    background: #fff;
+}
+.item.item-avatar.post, a.item.assertive {
+    padding: 13px;
+}
+
+a {
+	text-decoration: none !important;
+}
+.list.card.category {
+    margin: 10px 1px;
+}
+input {
+    width: 100%;
+}
+.post-icons.item {
+    text-align: right;
+    padding: 7px;	
+}
+.has-tabs, .bar-footer.has-tabs {
+    bottom: 0;
+}
+.post-icons.item * {
+    padding: 0 5px;
+    font-size: 18px;
+    color: #565656;
+}
+.bar .title {
+	font-size: 18px;
+    font-weight: 100;
+    position: relative;
+    line-height: 34px;
+}
+p.item.assertive.ng-binding {
+    padding: 13px;
+    font-size: 13px;
+    color: #2929B7;
+}
+.item.item-image {
+    max-height: 200px;
+}
+ion-header-bar.bar.bar-header {
+    max-height: 44px !important;
+}
+.truetesticon {
+    display: inline;
+}
+.falsetesticon, .testicon {
+    display: none;
+}
+.item.inner.category {
+    padding: 0;
+    border: none;
+}
+#search {
+    border: 1px solid rgb(212, 212, 212);
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 36px;
+    height: 70%;
+    border-radius: 999em;
+    width: 100%;
+}
+label.search {
+    height: 100%;
+}
+i.icon.ion-ios-search.placeholder-icon {
+    padding-right: 0px;
+    position: absolute;
+    padding: 9px 9px 9px 15px;
+}
+.item.item-body.category {
+    padding: 12px;
+}
+h2.category {
+    margin-top: 6px;
+    margin-bottom: 0px;
+}
+h2.profile {
+    margin-top: 14px;
+}
+.subdued {
+    padding: 14px;
+    color: grey;
+}
+p.category {
+    margin-top: 0px;
+}
+.item.item-avatar {
+    padding-left: 72px;
+    min-height: 72px;
+}
+
+.category-item.ng-leave {
+    -webkit-animation: fadeInRight .3s;
+    animation: fadeInRight .3s;
+}
+.post-item.ng-enter {
+    -webkit-animation: fadeInRight .3s;
+    animation: fadeInRight .3s;
+}
+.post-item.ng-leave {
+  opacity:1;
+}
+.category-item.ng-leave.ng-leave-active {
+  opacity:0;
+}
+.scroll-content{
+  top: 0 !important;
+  bottom: 0 !important;
+  padding-top: 89px !important;
+}

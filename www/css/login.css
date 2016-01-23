@@ -1,0 +1,42 @@
+
+/*log in page*/
+ion-view.pane[name="login-view"] .scroll-content {
+    top: 0;
+    background: url('http://i.imgur.com/2zgo8Zz.jpg');
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.bar ~ .hide  {
+    display: none;  
+}
+
+ion-view.pane[name="login-view"] .item {
+    background: transparent;
+    background-color: transparent;
+    border: none;
+}
+ion-view.pane[name="login-view"] .button.button-positive {
+    box-shadow: .2px .2px .2px .2px #000;
+}
+ion-view.pane[name="login-view"] .titlemain {
+    height: 150px;
+    color: #fff;
+    font-size: 13em;
+    text-align: center;
+    text-shadow: 3px 6px 14px #000;
+    margin-top: 90px;
+    font-family: inherit;
+    font-weight: 100;
+    border-bottom: 1px solid;
+    width: 50%;
+    margin: 90px auto;
+    margin-bottom: 0;
+    line-height: 126px;
+    border-bottom-width: 7px;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 1000%;
+    border-bottom-color: rgb(228, 228, 228);
+}
+
