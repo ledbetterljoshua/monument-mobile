@@ -33,8 +33,9 @@
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
   </head>
-  <body ng-app="starter">
+  <body ng-app="starter" onhashchange="soundcloud()">
     <!--
       The nav bar that will be updated as we navigate between views.
     -->
@@ -59,9 +60,15 @@
       have templates inline in this html file if you'd like).
     -->
     <ion-nav-view></ion-nav-view>
-    <script type="text/javascript">
-    console.log("hello" + user)
-    </script>
 
+    <script type="text/javascript">
+    var soundcloud = function() { 
+      $('iframe#soundcloud').each(function(){
+        var src = $(this).attr('content');
+        $(this).attr('src', src);
+      });
+    }
+
+    </script>
   </body>
 </html>

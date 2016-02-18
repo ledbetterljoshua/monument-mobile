@@ -10,6 +10,15 @@ angular.module('starter.controllers', [])
   });
 })
 .controller('DashCtrl', function($scope, $location, $rootScope, $http, $ionicLoading,  group, groupsInPost) {
+ 
+
+var soundcloud = function () {
+  $('iframe#soundcloud').each(function(){
+    var src = $(this).attr('content');
+    $(this).attr('src', src);
+  });
+}
+soundcloud();
 
 $scope.refreshPost = function(){
     $ionicLoading.show({
@@ -297,8 +306,26 @@ $scope.removeFromGroup = function(post_id) {
   }
 })
 .controller('LoginCtrl', function($scope, $rootScope, $ionicModal, $timeout, $location) {
+
+    $(document).click(function(event){
+      event.preventDefault();
+
+      location.href = $(event.target).attr("href")
+    })
+
     $scope.loginPage = true;
-    var images = ["https://images.unsplash.com/uploads/14116941824817ba1f28e/78c8dff1?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=bdf1e263a1d23855c66d335b0893c1c9", "https://images.unsplash.com/uploads/1413395496082cbc91228/43e39040?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=43643af8333d4a0eeda321ad10f0cc7d", "https://images.unsplash.com/reserve/yapfjxRqy2d2rGRNc2yQ_zavrsnica-9-indie.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=d683eebfbe877598d2c8abef7b4a8fc2","https://images.unsplash.com/photo-1446185250204-f94591f7d702?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=7a53642f59107b10caa2eff33fce94f5", "https://images.unsplash.com/photo-1442606440995-d0be22c5f90f?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=13397bac410c5abf133597495709de45", "http://i.imgur.com/2zgo8Zz.jpg", "https://images.unsplash.com/photo-1439853949127-fa647821eba0?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=d67cf1c5975186e79bad375a4991b014", "https://images.unsplash.com/photo-1438480478735-3234e63615bb?crop=entropy&dpr=2&fit=crop&fm=jpg&h=675&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1350", "https://images.unsplash.com/photo-1436891620584-47fd0e565afb?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=9580e27795d8af74b7ea143e70a71636", "https://images.unsplash.com/photo-1429091967365-492aaa5accfe?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=86e121d524b82188d773395446707cf0", "https://images.unsplash.com/reserve/e66NHyUFQx6lNahLbW6g_IMG_2536_2.jpg?crop=entropy&dpr=2&fit=crop&fm=jpg&h=675&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1350", "https://images.unsplash.com/photo-1416854905195-f4c96ea8f949?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=1f558147ba9c86f1890f9d3783be5add"]
+    var images = ["https://images.unsplash.com/uploads/14116941824817ba1f28e/78c8dff1?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=bdf1e263a1d23855c66d335b0893c1c9", 
+    "https://images.unsplash.com/uploads/1413395496082cbc91228/43e39040?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=43643af8333d4a0eeda321ad10f0cc7d", 
+    "https://images.unsplash.com/reserve/yapfjxRqy2d2rGRNc2yQ_zavrsnica-9-indie.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=d683eebfbe877598d2c8abef7b4a8fc2",
+    "https://images.unsplash.com/photo-1446185250204-f94591f7d702?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=7a53642f59107b10caa2eff33fce94f5", 
+    "https://images.unsplash.com/photo-1442606440995-d0be22c5f90f?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=13397bac410c5abf133597495709de45", 
+    "http://i.imgur.com/2zgo8Zz.jpg", 
+    "https://images.unsplash.com/photo-1439853949127-fa647821eba0?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=d67cf1c5975186e79bad375a4991b014", 
+    "https://images.unsplash.com/photo-1438480478735-3234e63615bb?crop=entropy&dpr=2&fit=crop&fm=jpg&h=675&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1350", 
+    "https://images.unsplash.com/photo-1436891620584-47fd0e565afb?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=9580e27795d8af74b7ea143e70a71636", 
+    "https://images.unsplash.com/photo-1429091967365-492aaa5accfe?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=86e121d524b82188d773395446707cf0", 
+    "https://images.unsplash.com/reserve/e66NHyUFQx6lNahLbW6g_IMG_2536_2.jpg?crop=entropy&dpr=2&fit=crop&fm=jpg&h=675&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1350", 
+    "https://images.unsplash.com/photo-1416854905195-f4c96ea8f949?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=1f558147ba9c86f1890f9d3783be5add"]
 
     var image = images[Math.floor(Math.random()*images.length)];
 

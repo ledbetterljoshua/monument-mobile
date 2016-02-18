@@ -1,37 +1,53 @@
+
+
 <ion-view view-title="Dashboard">
   <ion-content class="padding" header-shrink scroll-event-interval="5">
   <ion-refresher pulling-text="Pull to refresh" on-refresh="refreshPost()">
     </ion-refresher>
+    <br>
+    <br>
+    <input type="text" ng-model="style">
+    <style type="text/css">
+    {{style}}
+    </style>
     <div class="list card" ng-repeat="post in posts | filter:search | orderBy:'-created'  track by post._id" >
-      <a href="{{post.url}}" target="_blank">
-        <div class="item item-avatar post">
-          <h2>{{post.title}}</h2>
-          <p>{{post.created | date}} - {{post.url | domain}}</p>
+      <iframe src="{{post.description}}" width="100%" ng-if="false"></iframe>
+      <div>
+        <a href="{{post.url}}" target="_blank">
+          <div class="item item-avatar post">
+            <h2>{{post.title}}</h2>
+            <p>{{post.created | date}} - {{post.url | domain}}</p>
+          </div>
+        </a>
+        <div style="display:none !important">{{post.group}}</div>
+        <div class="item item-image">
+          <div ng-hide="post.image == 'undefined' || !post.image || post.url.indexOf('soundcloud.com') > -1">
+            <img ng-cloak ng-src="{{post.image}}" src="{{post.image}}" on-error-src="https://nutrasumma.com/wp-content/uploads/banner-placeholder.jpg">
+          </div>
+          <div ng-if="post.url.indexOf('soundcloud.com') > -1">
+            <iframe id="soundcloud" width="100%" content="{{post.description}}"></iframe>
+          </div>
         </div>
-      </a>
-      <div style="display:none !important">{{post.group}}</div>
-      <div ng-hide="post.image == 'undefined' || !post.image" class="item item-image">
-        <img ng-cloak ng-src="{{post.image}}" src="{{post.image}}" on-error-src="https://nutrasumma.com/wp-content/uploads/banner-placeholder.jpg">
+
+        <p ng-hide="post.description == 'undefined' || !post.description || post.url.indexOf('soundcloud.com') > -1" class="item  assertive">
+          {{post.description}}
+        </p>
+        <div class="post-icons item">
+              <ng-md-icon  class="ion-ios-heart-outline {{!post.favorite}}testicon" ng-click="favoritePost(post._id); refreshPost()">
+          </ng-md-icon>
+          <ng-md-icon class="ion-heart {{post.favorite}}testicon"  ng-click="removeFavorite(post._id); refreshPost()">
+          </ng-md-icon>
+          <ng-md-icon class="ion-ios-book-outline {{!post.readLater}}testicon"  ng-click="readLater(post._id); refreshPost()">
+          </ng-md-icon>
+          <ng-md-icon class="ion-ios-checkmark-outline {{post.readLater}}testicon"  ng-click="markAsRead(post._id); refreshPost()">
+          </ng-md-icon>
+            <ng-md-icon ng-if="showRemovePost.active" ng-click="addToGroup(post._id, showRemovePost.group); getPostss()"  class="highlight_remove">
+          </ng-md-icon>
+
+            <ng-md-icon ng-click="remove(post._id)"  class="ion-ios-close-outline">
+          </ng-md-icon>
+        </div> <!-- icons end -->
       </div>
-
-      <p ng-hide="post.description == 'undefined' || !post.description" class="item  assertive">
-        {{post.description}}
-      </p>
-      <div class="post-icons item">
-            <ng-md-icon  class="ion-ios-heart-outline {{!post.favorite}}testicon" ng-click="favoritePost(post._id); refreshPost()">
-        </ng-md-icon>
-        <ng-md-icon class="ion-heart {{post.favorite}}testicon"  ng-click="removeFavorite(post._id); refreshPost()">
-        </ng-md-icon>
-        <ng-md-icon class="ion-ios-book-outline {{!post.readLater}}testicon"  ng-click="readLater(post._id); refreshPost()">
-        </ng-md-icon>
-        <ng-md-icon class="ion-ios-checkmark-outline {{post.readLater}}testicon"  ng-click="markAsRead(post._id); refreshPost()">
-        </ng-md-icon>
-          <ng-md-icon ng-if="showRemovePost.active" ng-click="addToGroup(post._id, showRemovePost.group); getPostss()"  class="highlight_remove">
-        </ng-md-icon>
-
-          <ng-md-icon ng-click="remove(post._id)"  class="ion-ios-close-outline">
-        </ng-md-icon>
-      </div> <!-- icons end -->
 
     </div>
   </ion-content>
