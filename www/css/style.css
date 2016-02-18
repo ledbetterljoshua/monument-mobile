@@ -120,7 +120,7 @@ p.category {
   bottom: 0 !important;
   padding-top: 89px !important;
 }
-.view-container {
+html {
     position: absolute;
     display: block;
     width: 100%;

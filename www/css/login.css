@@ -39,7 +39,7 @@ ion-view.pane[name="login-view"] .titlemain {
     border-bottom-right-radius: 1000%;
     border-bottom-color: rgb(228, 228, 228);
 }
-.view-container {
+html {
     position: absolute;
     display: block;
     width: 100%;
