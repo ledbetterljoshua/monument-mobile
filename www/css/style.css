@@ -133,6 +133,7 @@ p.category {
     top: 17%;
     border: 2px solid #000;
     border-radius: 0px;
+    z-index: 50;
 }
 #mobile-back {
     position: absolute;
@@ -144,5 +145,16 @@ p.category {
     right: 0;
     max-height: 88%;
     top: 5%;
+    z-index: 10;
+}
+#mobile-top {
+    position: absolute;
+    top: 11%;
+    height: 48px;
+    width: 324px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background: #313538;
     z-index: 999;
 }
