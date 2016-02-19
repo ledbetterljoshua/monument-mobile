@@ -9,5 +9,12 @@
 </ion-view>
 
 <script type="text/javascript">
-
+$(window).load(function(){
+	$('html').click(function(){
+		return false;
+	});
+	$('a.button.button-block.button-positive').click(function(){
+		window.location.pathname = $(this).attr('href');
+	});	
+});
 </script>

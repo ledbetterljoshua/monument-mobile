@@ -39,27 +39,42 @@
     <!--
       The nav bar that will be updated as we navigate between views.
     -->
-    <div class="bar bar-subheader">
-      <label class="item-input-wrapper search">
-        <i class="icon ion-ios-search placeholder-icon"></i>
-        <input type="search" placeholder="Search" ng-model="search" id="search"> 
-        <input style="display:none !important;" type="search" placeholder="Search" ng-model="searchCategory">
-        <button class="button" ng-show="search" ng-click="clearSearch()">X</button>
-      </label>
+    <img src="http://ionicframework.com/img/phone-case@2x.png" style="
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 370px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    max-height: 88%;
+    top: 5%;
+">
+    <div id="main-container">
+      <div class="bar bar-subheader">
+        <label class="item-input-wrapper search">
+          <i class="icon ion-ios-search placeholder-icon"></i>
+          <input type="search" placeholder="Search" ng-model="search" id="search"> 
+          <input style="display:none !important;" type="search" placeholder="Search" ng-model="searchCategory">
+          <button class="button" ng-show="search" ng-click="clearSearch()">X</button>
+        </label>
+      </div>
+      <ion-nav-bar class="bar bar-header">
+        <ion-nav-back-button class="button-clear">
+          <i class="ion-arrow-left-c"></i> Back
+        </ion-nav-back-button>
+        <button class="button button-clear button-light">M</button>
+      </ion-nav-bar>
+      <div class="buffer"></div>
+      <!--
+        The views will be rendered in the <ion-nav-view> directive below
+        Templates are in the /templates folder (but you could also
+        have templates inline in this html file if you'd like).
+      -->
+      <ion-nav-view></ion-nav-view>
     </div>
-    <ion-nav-bar class="bar bar-header">
-      <ion-nav-back-button class="button-clear">
-        <i class="ion-arrow-left-c"></i> Back
-      </ion-nav-back-button>
-      <button class="button button-clear button-light">M</button>
-    </ion-nav-bar>
-    <div class="buffer"></div>
-    <!--
-      The views will be rendered in the <ion-nav-view> directive below
-      Templates are in the /templates folder (but you could also
-      have templates inline in this html file if you'd like).
-    -->
-    <ion-nav-view></ion-nav-view>
 
     <script type="text/javascript">
     var soundcloud = function() { 
